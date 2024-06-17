@@ -6,6 +6,7 @@ public class StudentBean
 	private String playingType;
 	private String foodPreference;
 	private String drink;
+	
 	public String getStudentName() {
 		return studentName;
 	}
