@@ -24,13 +24,14 @@
 			<th>Category</th>
 			<th>Price</th>
 			<th>Qty</th>
+			<th>Action</th>
 		</tr>
 		
 		<%
 			for (EProductBean p : products){
 				out.print("<tr>");
 				out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td><td>" + 
-								p.getCategory() + "</td><td>" + p.getPrice() + "</td><td>" + p.getQty() + "</td>");
+								p.getCategory() + "</td><td>" + p.getPrice() + "</td><td>" + p.getQty() + "</td><td> <a href='deleteproduct?productId="+p.getProductId()+"'>DELETE</a> ");
 				out.print("</tr>");
 				
 			}
