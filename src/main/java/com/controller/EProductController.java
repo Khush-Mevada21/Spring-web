@@ -46,6 +46,29 @@ public class EProductController
 	public String deleteProduct(@RequestParam("productId") Integer productId)
 	{
 		System.out.println("deleteProducts() => " + productId);
+		
+		productDao.deleteproductID(productId);
+		
+		return "redirect:/products";
+	}
+			
+	@GetMapping("/deleteproductname")
+	public String listProducts1(Model model) 
+	{
+		List<EProductBean> products = productDao.getAllProducts();
+		
+		model.addAttribute("products",products);
+		
+		return "DeleteProductName";
+	}
+	
+	@GetMapping("/deleteproductbyname")
+	public String deleteProduct(@RequestParam("productName") String productName)
+	{
+		System.out.println("deleteProducts() => " + productName);
+		
+		productDao.deleteproductName(productName);
+		
 		return "redirect:/products";
 	}
 }

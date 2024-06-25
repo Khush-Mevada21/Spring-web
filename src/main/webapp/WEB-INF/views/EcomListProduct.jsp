@@ -12,9 +12,14 @@
 
 	<h2>Product List</h2>
 	
+	<a href="newproduct">New Product</a><br><br>
+	
+	<a href="deleteproductname">Delete Product By Name</a> <br><br>
+	
 	<%
 		List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
 	%>
+	
 	
 	<table border="1">
 	
