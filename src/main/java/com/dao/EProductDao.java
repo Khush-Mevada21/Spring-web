@@ -39,4 +39,11 @@ public class EProductDao {
 		stmt.update("delete from product where productName = ?",productName);
 	}
 	
+	public EProductBean getProductById(Integer productId) 
+	{
+		EProductBean bean = stmt.queryForObject("select * from product where productId = ? ", new BeanPropertyRowMapper<>(EProductBean.class), new Object[] {productId});
+		
+		return bean;
+	}
+	
 }
