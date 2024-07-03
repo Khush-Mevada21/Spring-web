@@ -26,5 +26,27 @@ public class FileUploadService {
 			e.printStackTrace();
 		}
 	}
+	
+	public void uploadUserImage(MultipartFile masterImage, String email) 
+	{
+		System.out.println(masterImage.getOriginalFilename());
+		
+		String path = "D:\\Spring Core\\spring_workspace\\spring-web-2\\src\\main\\webapp\\images\\Profile Image";
+		
+		File dir = new File(path, email);
+		dir.mkdir();
+		
+		try {
+			
+			byte b[] = masterImage.getBytes();
+			File file = new File(dir,masterImage.getOriginalFilename());
+			FileUtils.writeByteArrayToFile(file, b);
+			
+		}
+		catch(Exception e)
+		{
+			e.printStackTrace();
+		}
+	}
 
 }
