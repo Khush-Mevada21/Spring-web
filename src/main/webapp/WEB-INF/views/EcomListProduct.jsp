@@ -16,6 +16,8 @@
 	
 	<a href="deleteproductname">Delete Product By Name</a> <br><br>
 	
+	<a href="ehome">Home</a><br><br>
+	
 	<%
 		List<EProductBean> products = (List<EProductBean>) request.getAttribute("products");
 	%>
