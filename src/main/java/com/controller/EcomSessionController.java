@@ -60,7 +60,7 @@ public class EcomSessionController {
 		//System.out.println(userbean.getProfileImage().getOriginalFilename());
 		
 		userbean.setProfileImagePath("images//Profile Image//" + userbean.getEmail() + "//" + userbean.getProfileImage().getOriginalFilename());
-		
+
 		userDao.insertUser(userbean); 
 			
 		fileUploadService.uploadUserImage(userbean.getProfileImage(), userbean.getEmail());
