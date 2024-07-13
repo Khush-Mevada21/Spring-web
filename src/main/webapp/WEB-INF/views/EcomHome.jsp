@@ -17,7 +17,7 @@
 	<img alt="" src="${user.profileImagePath}" height="300px" width="300px">
 	<br>
 	<br>
-	
-	<a href="products">Products</a>
+
+	<a href="userproducts">Products</a>
 </body>
 </html>
