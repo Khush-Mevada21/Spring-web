@@ -15,7 +15,8 @@
 		Float price = 0.0f;
 	%>
 	
-	
+	<a href="userproducts">Products</a>
+	<br><br>
 	<table border="1">
 	
 		<tr>
@@ -32,7 +33,7 @@
 				out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td>");
 				out.print("<td><img src='"+p.getProductImagePath()+"' height='100px' width='100px'/></td>");
 				out.print("<td>"+p.getPrice()+"</td>");
-				out.print("<td><a href='removecartitem'>Remove</a></td>");
+				out.print("<td> <a href='removecartitem?productId="+p.getProductId()+"'> REMOVE </a></td>");
 				out.print("</tr>");
 				
 				price = price + p.getPrice();
@@ -46,6 +47,7 @@
 	
 	<br><br>
 	<a href="checkout">checkout</a>
+	
 
 </body>
 </html>

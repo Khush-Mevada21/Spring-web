@@ -50,4 +50,12 @@ public class CartController
 		return "MyCart";
 	}
 
+	
+	@GetMapping("/removecartitem")
+	public String removecartitem(@RequestParam("productId") Integer productId)
+	{
+		cartDao.removecartitembyId(productId);
+		
+		return "redirect:/mycart";
+	}
 }

@@ -16,7 +16,8 @@ public class CartDao {
 	@Autowired
 	JdbcTemplate stmt;
 
-	public void addToCart(ECartBean cartBean) {
+	public void addToCart(ECartBean cartBean) 
+	{
 		stmt.update("insert into cart (productId,userId) values (?,?)", cartBean.getProductId(), cartBean.getUserId());
 	}
 
@@ -25,5 +26,11 @@ public class CartDao {
 		List<EProductBean> products = stmt.query("select * from product join cart using (productId) where userId = ?", new BeanPropertyRowMapper<>(EProductBean.class), new Object[] {userId});
 		
 		return products;
+	}
+	
+	public void removecartitembyId(Integer productId)
+	{
+		stmt.update("delete from cart where productId = ?",productId);
+		
 	}
 }
