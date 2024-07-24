@@ -24,6 +24,7 @@
 			<th>ProductName</th>
 			<th>Image</th>
 			<th>price</th>
+			<th>Qty</th>
 			<th>Action</th>
 		</tr>
 		
@@ -33,6 +34,7 @@
 				out.print("<td>" + p.getProductId() + "</td><td>" + p.getProductName() + "</td>");
 				out.print("<td><img src='"+p.getProductImagePath()+"' height='100px' width='100px'/></td>");
 				out.print("<td>"+p.getPrice()+"</td>");
+				out.print("<td>"+p.getQty()+"</td>");
 				out.print("<td> <a href='removecartitem?productId="+p.getProductId()+"'> REMOVE </a></td>");
 				out.print("</tr>");
 				

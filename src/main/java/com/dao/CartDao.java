@@ -18,7 +18,26 @@ public class CartDao {
 
 	public void addToCart(ECartBean cartBean) 
 	{
-		stmt.update("insert into cart (productId,userId) values (?,?)", cartBean.getProductId(), cartBean.getUserId());
+		ECartBean cart = null;
+		
+		try {
+			cart = stmt.queryForObject("select * from cart where productId = ? and userId = ?", 
+					new BeanPropertyRowMapper<>(ECartBean.class),
+					new Object[] {cartBean.getProductId(), cartBean.getUserId() });
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
+		
+		if(cart == null)
+		{
+			stmt.update("insert into cart (productId,userId,qty) values (?,?,?)", cartBean.getProductId(), cartBean.getUserId(), 1);
+		}
+		else
+		{
+			stmt.update("update cart set qty = ? where productId = ? and userId = ?",cart.getQty()+1, cart.getProductId(), cart.getUserId());
+		}
+		
 	}
 
 	public List<EProductBean> myCart(Integer userId){
