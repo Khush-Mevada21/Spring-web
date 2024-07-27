@@ -11,12 +11,10 @@
 <body>
 	
 	<h2>Pay</h2>
+	<br>
 	
 	
-	<br><br>
-	
-	
-	Final Amount : XXXX
+	Final Amount : ${totalPrice}
 	<br>
 	Credit Cart : <input type="text" name="creditCardNum"/>
 	<br><br>

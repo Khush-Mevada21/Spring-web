@@ -46,7 +46,15 @@ public class CartDao {
 		
 		return products;
 	}
-	
+	/*
+	 public List<ProductCartBean> myCart(Integer userId){
+		
+		List<ProductCartBean> products = stmt.query("select c.*,p.productName,p.productImahePath from product p join cart c using (productId) where userId = ?", new BeanPropertyRowMapper<>(ProductCartBean.class), new Object[] {userId});
+		
+		return products;
+	} 
+	 
+	 * */
 	public void removecartitembyId(Integer productId)
 	{
 		stmt.update("delete from cart where productId = ?",productId);
