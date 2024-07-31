@@ -60,4 +60,20 @@ public class CartDao {
 		stmt.update("delete from cart where productId = ?",productId);
 		
 	}
+	
+	public void updateProductQty(int productId, int userId, int qtyChange) 
+	{
+        ECartBean cart = stmt.queryForObject("select * from cart where productId = ? and userId = ?", new BeanPropertyRowMapper<>(ECartBean.class),productId, userId);
+
+        int newQty = cart.getQty() + qtyChange;
+        
+        if (newQty > 0) 
+        {
+            stmt.update("update cart set qty = ? where productId = ? and userId = ?", newQty, productId, userId);
+        } 
+        else 
+        {
+            stmt.update("delete from cart where productId = ? and userId = ?", productId, userId);
+        }
+    }
 }

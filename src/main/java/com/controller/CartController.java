@@ -55,7 +55,28 @@ public class CartController
 	public String removecartitem(@RequestParam("productId") Integer productId)
 	{
 		cartDao.removecartitembyId(productId);
+		return "redirect:/mycart";
+	}
+	
+	@GetMapping("/increaseQty")
+	public String increaseQty(@RequestParam("productId") Integer productId, HttpSession session)
+	{
+		EUserbean userBean = (EUserbean) session.getAttribute("user");
+		Integer userId = userBean.getUserId();
+        cartDao.updateProductQty(productId, userId, 1);
 		
 		return "redirect:/mycart";
 	}
+	
+	 @GetMapping("/decreaseQty")	    
+	 public String decreaseQty(@RequestParam("productId") Integer productId, HttpSession session) 
+	 {
+	    EUserbean userBean = (EUserbean) session.getAttribute("user");
+	    Integer userId = userBean.getUserId();
+	    cartDao.updateProductQty(productId, userId, -1);
+	    
+	    return "redirect:/mycart";
+    }
+	
+	
 }

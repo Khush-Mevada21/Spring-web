@@ -9,7 +9,7 @@ public class EProductBean {
 	private Float price;
 	private String productImagePath;
 	private String cartId;
-	
+
 	public Integer getProductId() {
 		return productId;
 	}
@@ -52,6 +52,7 @@ public class EProductBean {
 	public void setCartId(String cartId) {
 		this.cartId = cartId;
 	}
+	
 
 	
 }
